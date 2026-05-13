@@ -1,0 +1,22 @@
+# Node Modules
+node_modules
+
+# Env Files
+.env
+
+# Build Files
+dist
+build
+
+# Logs
+logs
+*.log
+
+# OS Files
+.DS_Store
+
+# Vercel
+.vercel
+
+# IDE
+.vscode
