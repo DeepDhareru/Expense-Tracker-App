@@ -11,21 +11,11 @@ const sendEmail = async (
 
   try {
 
-    console.log(
-      "EMAIL_USER:",
-      process.env.EMAIL_USER
-    );
-
-    console.log(
-      "Sending email to:",
-      email
-    );
-
-    // TRANSPORT
     const transporter =
       nodemailer.createTransport({
 
-        host: "smtp.gmail.com",
+        host:
+          "smtp-relay.brevo.com",
 
         port: 587,
 
@@ -43,14 +33,7 @@ const sendEmail = async (
 
       });
 
-    // VERIFY SMTP
-    await transporter.verify();
-
-    console.log(
-      "SMTP Connected Successfully"
-    );
-
-    // SEND MAIL
+    // SEND EMAIL
     const info =
       await transporter.sendMail({
 
@@ -66,7 +49,7 @@ const sendEmail = async (
       });
 
     console.log(
-      "Message Sent:",
+      "Email Sent:",
       info.messageId
     );
 
