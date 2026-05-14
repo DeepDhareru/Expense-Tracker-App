@@ -1,60 +1,72 @@
-const nodemailer =
-  require("nodemailer");
+const axios =
+  require("axios");
 
 const sendEmail = async (
+
   email,
   subject,
   text
+
 ) => {
 
   try {
 
-    const transporter =
-      nodemailer.createTransport({
+    const response =
+      await axios.post(
 
-        host:
-          "smtp-relay.brevo.com",
+        "https://send.api.mailtrap.io/api/send",
 
-        port: 587,
+        {
 
-        secure: false,
+          from: {
 
-        auth: {
+            email:
+              "hello@demomailtrap.com",
 
-          user:
-            process.env.EMAIL_USER,
+            name:
+              "ExpenseAI",
 
-          pass:
-            process.env.EMAIL_PASS,
+          },
+
+          to: [
+
+            {
+              email,
+            },
+          ],
+
+          subject,
+
+          text,
 
         },
 
-      });
+        {
 
-    // SEND EMAIL
-    const info =
-      await transporter.sendMail({
+          headers: {
 
-        from: `"ExpenseAI" <${process.env.EMAIL_USER}>`,
+            Authorization:
+              `Bearer ${process.env.MAILTRAP_TOKEN}`,
 
-        to: email,
+            "Content-Type":
+              "application/json",
 
-        subject,
+          },
 
-        text,
-
-      });
+        }
+      );
 
     console.log(
       "EMAIL SENT:",
-      info.response
+      response.data
     );
 
   } catch (err) {
 
     console.log(
       "EMAIL ERROR:",
-      err
+      err.response?.data ||
+        err.message
     );
   }
 };
