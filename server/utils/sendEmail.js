@@ -1,28 +1,41 @@
-const { Resend } =
-  require("resend");
-
-const resend =
-  new Resend(
-
-    process.env.RESEND_API_KEY
-
-  );
+const nodemailer =
+  require("nodemailer");
 
 const sendEmail = async (
-
   email,
   subject,
   text
-
 ) => {
 
   try {
 
-    const response =
-      await resend.emails.send({
+    const transporter =
+      nodemailer.createTransport({
 
-        from:
-          "onboarding@resend.dev",
+        host:
+          "smtp-relay.brevo.com",
+
+        port: 587,
+
+        secure: false,
+
+        auth: {
+
+          user:
+            process.env.EMAIL_USER,
+
+          pass:
+            process.env.EMAIL_PASS,
+
+        },
+
+      });
+
+    // SEND EMAIL
+    const info =
+      await transporter.sendMail({
+
+        from: `"ExpenseAI" <${process.env.EMAIL_USER}>`,
 
         to: email,
 
@@ -34,7 +47,7 @@ const sendEmail = async (
 
     console.log(
       "EMAIL SENT:",
-      response
+      info.response
     );
 
   } catch (err) {

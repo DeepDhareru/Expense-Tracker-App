@@ -31,9 +31,11 @@ app.use("/api/transactions", transactionRoutes);
 app.use("/api/analytics", analyticsRoutes);
 app.use("/api/budget", budgetRoutes);
 app.use("/api/otp", otpRoutes);
+
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
+
 app.use("/api/ai", aiRoutes);
 const PORT = process.env.PORT || 5000;
 
