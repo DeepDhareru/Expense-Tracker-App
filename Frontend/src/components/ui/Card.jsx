@@ -1,22 +1,20 @@
-import { useTheme } from "../../context/ThemeContext";
-
 export default function Card({
-  children,
-  className,
-}) {
 
-  const { darkMode } = useTheme();
+  children,
+  className = "",
+
+}) {
 
   return (
 
     <div
-      className={`rounded-3xl shadow-lg p-6 ${
-        darkMode
-          ? "bg-gray-800 text-white"
-          : "bg-white text-black"
-      } ${className}`}
+      className={`w-full rounded-3xl p-4 md:p-6 shadow-md ${
+        className
+      }`}
     >
+
       {children}
+
     </div>
   );
 }

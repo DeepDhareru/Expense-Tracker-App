@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import API from "../services/api";
 
-import Navbar from "../components/layout/Navbar";
+// import Navbar from "../components/layout/Navbar";
 import Sidebar from "../components/layout/Sidebar";
 
 import Card from "../components/ui/Card";
@@ -113,8 +113,7 @@ export default function Profile() {
       }`}
     >
 
-      {/* NAVBAR */}
-      <Navbar />
+      
 
       <div className="flex">
 

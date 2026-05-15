@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 import API from "../services/api";
 
-import Navbar from "../components/layout/Navbar";
+// import Navbar from "../components/layout/Navbar";
 import Sidebar from "../components/layout/Sidebar";
 
 import SummaryCards from "../components/dashboard/SummaryCards";
@@ -174,8 +174,8 @@ export default function Dashboard() {
       }`}
     >
 
-      {/* TOP NAVBAR */}
-      <Navbar />
+      
+      
 
       {/* MAIN LAYOUT */}
       <div className="flex">

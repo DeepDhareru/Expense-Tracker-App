@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import API from "../services/api";
 
-import Navbar from "../components/layout/Navbar";
+// import Navbar from "../components/layout/Navbar";
 import Sidebar from "../components/layout/Sidebar";
 import FinancialScoreCard from "../components/analytics/FinancialScoreCard";
 import WeeklyAnalytics from "../components/analytics/WeeklyAnalytics";
@@ -169,8 +169,7 @@ export default function Analytics() {
       }`}
     >
 
-      {/* NAVBAR */}
-      <Navbar />
+      
 
       <div className="flex">
 

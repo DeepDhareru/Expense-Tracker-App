@@ -35,9 +35,8 @@ export default function SummaryCards({
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
       {/* BALANCE */}
-      <Card className="relative overflow-hidden">
+      <Card className="relative overflow-hidden bg-white dark:bg-gray-800">
 
-        {/* GLOW */}
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-100 rounded-full opacity-50" />
 
         <div className="relative z-10">
@@ -52,7 +51,7 @@ export default function SummaryCards({
 
               </p>
 
-              <h2 className="text-4xl font-bold mt-4">
+              <h2 className="text-3xl md:text-4xl font-bold mt-4">
 
                 {
                   symbols[currency]
@@ -81,9 +80,8 @@ export default function SummaryCards({
       </Card>
 
       {/* INCOME */}
-      <Card className="relative overflow-hidden">
+      <Card className="relative overflow-hidden bg-white dark:bg-gray-800">
 
-        {/* GLOW */}
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-green-100 rounded-full opacity-50" />
 
         <div className="relative z-10">
@@ -98,7 +96,7 @@ export default function SummaryCards({
 
               </p>
 
-              <h2 className="text-4xl font-bold mt-4 text-green-500">
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 text-green-500">
 
                 {
                   symbols[currency]
@@ -127,9 +125,8 @@ export default function SummaryCards({
       </Card>
 
       {/* EXPENSE */}
-      <Card className="relative overflow-hidden">
+      <Card className="relative overflow-hidden bg-white dark:bg-gray-800">
 
-        {/* GLOW */}
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-red-100 rounded-full opacity-50" />
 
         <div className="relative z-10">
@@ -144,7 +141,7 @@ export default function SummaryCards({
 
               </p>
 
-              <h2 className="text-4xl font-bold mt-4 text-red-500">
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 text-red-500">
 
                 {
                   symbols[currency]

@@ -1,14 +1,15 @@
 import {
+
   BrowserRouter,
   Routes,
   Route,
+  Navigate,
+
 } from "react-router-dom";
 
 import Auth from "./pages/Auth";
 
 import Dashboard from "./pages/Dashboard";
-
-import Profile from "./pages/Profile";
 
 import Transactions from "./pages/Transactions";
 
@@ -18,10 +19,26 @@ import Settings from "./pages/Settings";
 
 import AIAssistant from "./pages/AIAssistant";
 
-function App() {
+import MainLayout from "./layout/MainLayout";
 
-  const isAuth =
-    localStorage.getItem("token");
+// PROTECTED ROUTE
+const ProtectedRoute = ({
+  children,
+}) => {
+
+  const token =
+    localStorage.getItem(
+      "token"
+    );
+
+  return token
+
+    ? children
+
+    : <Navigate to="/" />;
+};
+
+export default function App() {
 
   return (
 
@@ -35,69 +52,51 @@ function App() {
           element={<Auth />}
         />
 
-        {/* DASHBOARD */}
+        {/* MAIN LAYOUT */}
         <Route
-          path="/dashboard"
           element={
-            isAuth
-              ? <Dashboard />
-              : <Auth />
-          }
-        />
+            <ProtectedRoute>
 
-        {/* PROFILE */}
-        <Route
-          path="/profile"
-          element={
-            isAuth
-              ? <Profile />
-              : <Auth />
-          }
-        />
+              <MainLayout />
 
-        {/* TRANSACTIONS */}
-        <Route
-          path="/transactions"
-          element={
-            isAuth
-              ? <Transactions />
-              : <Auth />
+            </ProtectedRoute>
           }
-        />
+        >
 
-        {/* ANALYTICS */}
-        <Route
-          path="/analytics"
-          element={
-            isAuth
-              ? <Analytics />
-              : <Auth />
-          }
-        />
+          {/* DASHBOARD */}
+          <Route
+            path="/dashboard"
+            element={<Dashboard />}
+          />
 
-        {/* SETTINGS */}
-        <Route
-          path="/settings"
-          element={
-            isAuth
-              ? <Settings />
-              : <Auth />
-          }
-        />
+          {/* TRANSACTIONS */}
+          <Route
+            path="/transactions"
+            element={<Transactions />}
+          />
 
-        <Route
-          path="/ai"
-          element={
-            isAuth
-            ? <AIAssistant />
-            : <Auth />
-          }
-        />
+          {/* ANALYTICS */}
+          <Route
+            path="/analytics"
+            element={<Analytics />}
+          />
+
+          {/* SETTINGS */}
+          <Route
+            path="/settings"
+            element={<Settings />}
+          />
+
+          {/* AI ASSISTANT */}
+          <Route
+            path="/ai"
+            element={<AIAssistant />}
+          />
+
+        </Route>
 
       </Routes>
 
     </BrowserRouter>
   );
 }
-
-export default App;

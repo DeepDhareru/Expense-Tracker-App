@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
 
     <div
-      className={`flex items-center justify-between px-4 md:px-8 py-4 shadow-md sticky top-0 z-30 ${
+      className={`flex items-center justify-end px-4 md:px-8 py-4 shadow-md sticky top-0 z-30 w-full overflow-x-hidden ${
         darkMode
 
           ? "bg-gray-800 text-white"
@@ -45,41 +45,16 @@ export default function Navbar() {
       }`}
     >
 
-      {/* LEFT */}
-      <div>
-
-        <h1 className="text-2xl md:text-3xl font-bold">
-
-          ExpenseAI
-
-        </h1>
-
-        <p
-          className={`text-sm mt-1 ${
-            darkMode
-
-              ? "text-gray-300"
-
-              : "text-gray-500"
-          }`}
-        >
-
-          Smart Finance Tracker
-
-        </p>
-
-      </div>
-
       {/* RIGHT */}
-      <div className="flex items-center gap-3 md:gap-4">
+      <div className="flex items-center gap-2 md:gap-4 flex-wrap">
 
         {/* CURRENCY */}
         <CurrencySelector />
 
-        {/* THEME BUTTON */}
+        {/* THEME */}
         <button
           onClick={toggleTheme}
-          className={`p-3 rounded-2xl transition ${
+          className={`p-2 md:p-3 rounded-2xl transition ${
             darkMode
 
               ? "bg-gray-700 hover:bg-gray-600"
@@ -99,7 +74,7 @@ export default function Navbar() {
         {/* LOGOUT */}
         <button
           onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 text-white p-3 rounded-2xl transition"
+          className="bg-red-500 hover:bg-red-600 text-white p-2 md:p-3 rounded-2xl transition"
         >
 
           <LogOut size={20} />

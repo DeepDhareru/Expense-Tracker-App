@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Navbar from "../components/layout/Navbar";
+// import Navbar from "../components/layout/Navbar";
 import Sidebar from "../components/layout/Sidebar";
 
 import Card from "../components/ui/Card";
@@ -92,8 +92,7 @@ export default function Settings() {
       }`}
     >
 
-      {/* NAVBAR */}
-      <Navbar />
+     
 
       <div className="flex">
 
